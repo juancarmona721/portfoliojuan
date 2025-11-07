@@ -1,0 +1,62 @@
+/* Reset básico para quitar márgenes por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5; /* Color de fondo suave */
+    color: #333;
+    text-align: center;
+}
+
+/* Estilo para la barra superior (tu H1) */
+h1 {
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); /* Degradado vivo */
+    color: white;
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+/* Resaltar el nombre */
+h1 strong {
+    color: #ffeb3b; /* Un amarillo vivo para contrastar */
+}
+
+/* Contenedor de la lista (ignorando la tabla por ahora) */
+ul {
+    list-style-type: none; /* Quita los puntos de la lista */
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto; /* Centra la lista horizontalmente */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre cada item */
+}
+
+/* Estilo de los enlaces para que parezcan botones/tarjetas */
+li a {
+    display: block;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #444;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.3s ease; /* Suaviza la animación al pasar el mouse */
+    border-left: 5px solid #0072ff; /* Pequeño detalle de color a la izquierda */
+}
+
+/* Efecto al pasar el mouse por encima */
+li a:hover {
+    transform: translateY(-5px); /* Se levanta un poco */
+    box-shadow: 0 5px 15px rgba(0,114,255,0.2);
+    background-color: #0072ff;
+    color: white;
+}
