@@ -7,14 +7,14 @@
 }
 
 body {
-    background-color: #f0f2f5; /* Color de fondo suave */
-    color: #333;
+    background-color: #0F011F; /* Color de fondo suave */
+    color: #28E601;
     text-align: center;
 }
 
 /* Estilo para la barra superior (tu H1) */
 h1 {
-    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); /* Degradado vivo */
+    background: linear-gradient(135deg, #AD75E0 0%, #721DEB 100%); /* Degradado vivo */
     color: white;
     padding: 1.5rem 1rem;
     margin-bottom: 2rem;
@@ -25,7 +25,8 @@ h1 {
 
 /* Resaltar el nombre */
 h1 strong {
-    color: #ffeb3b; /* Un amarillo vivo para contrastar */
+    color: #28E601; /* Un amarillo vivo para contrastar */
+    -webkit-text-stroke: 0.6px black ;
 }
 
 /* Contenedor de la lista (ignorando la tabla por ahora) */
@@ -42,21 +43,27 @@ ul {
 /* Estilo de los enlaces para que parezcan botones/tarjetas */
 li a {
     display: block;
-    background-color: white;
+    background-color: #271A29;
     padding: 20px;
     border-radius: 12px;
     text-decoration: none;
-    color: #444;
+    color: whitesmoke;
     font-size: 1.1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     transition: all 0.3s ease; /* Suaviza la animación al pasar el mouse */
-    border-left: 5px solid #0072ff; /* Pequeño detalle de color a la izquierda */
+    border-left: 5px solid #8d8d8d; /* Pequeño detalle de color a la izquierda */
 }
 
 /* Efecto al pasar el mouse por encima */
 li a:hover {
     transform: translateY(-5px); /* Se levanta un poco */
-    box-shadow: 0 5px 15px rgba(0,114,255,0.2);
-    background-color: #0072ff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: #000000;
     color: white;
 }
+
+li a p {
+    font-size: 0.9rem;
+    color:#2DE617
+}
+
