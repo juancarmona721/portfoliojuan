@@ -6,64 +6,102 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* CAMBIO 1: 
+  - Eliminamos 'background-color' para que el video de fondo sea visible.
+*/
 body {
-    background-color: #0F011F; /* Color de fondo suave */
+    /* background-color: #0F011F; <-- ELIMINADO */
     color: #28E601;
     text-align: center;
 }
 
 /* Estilo para la barra superior (tu H1) */
 h1 {
-    background: linear-gradient(135deg, #AD75E0 0%, #721DEB 100%); /* Degradado vivo */
+    background: linear-gradient(135deg, #AD75E0 0%, #721DEB 100%);
     color: white;
     padding: 1.5rem 1rem;
     margin-bottom: 2rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     font-size: 2rem;
     letter-spacing: 1px;
 }
 
 /* Resaltar el nombre */
 h1 strong {
-    color: #28E601; /* Un amarillo vivo para contrastar */
-    -webkit-text-stroke: 0.6px black ;
+    color: #28E601;
+    -webkit-text-stroke: 0.6px black;
 }
 
-/* Contenedor de la lista (ignorando la tabla por ahora) */
+/* NUEVO:
+  - Añadimos un fondo semitransparente al H2
+  - Esto asegura que el texto "Mis proyectos:" se pueda leer
+    claramente sobre el video.
+*/
+h2 {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% opacidad */
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: inline-block; /* El fondo solo cubre el texto */
+    margin-bottom: 1.5rem;
+}
+
+
+/* Contenedor de la lista */
 ul {
-    list-style-type: none; /* Quita los puntos de la lista */
+    list-style-type: none;
     padding: 0;
     max-width: 600px;
-    margin: 0 auto; /* Centra la lista horizontalmente */
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Espacio entre cada item */
+    gap: 15px;
 }
 
-/* Estilo de los enlaces para que parezcan botones/tarjetas */
+/* CAMBIO 2:
+  - Cambiamos el color de fondo a un 'rgba'
+  - 'rgba(39, 26, 41, 0.85)' es el color #271A29 pero con 85% de opacidad.
+  - Esto te da el efecto de transparencia que querías.
+*/
 li a {
     display: block;
-    background-color: #271A29;
+    /* background-color: #271A29; <-- REEMPLAZADO */
+    background-color: rgba(39, 26, 41, 0.85); /* Color original con 85% opacidad */
     padding: 20px;
     border-radius: 12px;
     text-decoration: none;
     color: whitesmoke;
     font-size: 1.1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: all 0.3s ease; /* Suaviza la animación al pasar el mouse */
-    border-left: 5px solid #8d8d8d; /* Pequeño detalle de color a la izquierda */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border-left: 5px solid #8d8d8d;
 }
 
 /* Efecto al pasar el mouse por encima */
 li a:hover {
-    transform: translateY(-5px); /* Se levanta un poco */
+    transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    background-color: #000000;
+    /* background-color: #000000; <-- REEMPLAZADO */
+    background-color: rgba(0, 0, 0, 0.9); /* Más oscuro y opaco al pasar el mouse */
     color: white;
 }
 
 li a p {
     font-size: 0.9rem;
-    color:#2DE617
+    color: #2DE617
 }
 
+/* CAMBIO 3 (NUEVO):
+  - Estilos para posicionar el video en el fondo.
+*/
+#video-fondo {
+    position: fixed; /* Se queda fijo incluso si haces scroll */
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100; /* MUY IMPORTANTE: Envía el video detrás de todo el contenido */
+    object-fit: cover; /* Hace que el video cubra toda la pantalla sin deformarse */
+}
