@@ -6,48 +6,40 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* CAMBIO 1: 
-  - Eliminamos 'background-color' para que el video de fondo sea visible.
-*/
 body {
-    /* background-color: #0F011F; <-- ELIMINADO */
     color: #28E601;
     text-align: center;
 }
 
-/* Estilo para la barra superior (tu H1) */
+header {
+    position: relative;
+    z-index: 1;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+}
+
 h1 {
     background: linear-gradient(135deg, #AD75E0 0%, #721DEB 100%);
     color: white;
     padding: 1.5rem 1rem;
     margin-bottom: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     font-size: 2rem;
     letter-spacing: 1px;
 }
 
-/* Resaltar el nombre */
 h1 strong {
     color: #28E601;
-    -webkit-text-stroke: 0.6px black;
+    -webkit-text-stroke: 0.6px black ;
 }
 
-/* NUEVO:
-  - Añadimos un fondo semitransparente al H2
-  - Esto asegura que el texto "Mis proyectos:" se pueda leer
-    claramente sobre el video.
-*/
 h2 {
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% opacidad */
-    padding: 10px 15px;
-    border-radius: 8px;
-    display: inline-block; /* El fondo solo cubre el texto */
     margin-bottom: 1.5rem;
 }
 
-
-/* Contenedor de la lista */
 ul {
     list-style-type: none;
     padding: 0;
@@ -58,50 +50,51 @@ ul {
     gap: 15px;
 }
 
-/* CAMBIO 2:
-  - Cambiamos el color de fondo a un 'rgba'
-  - 'rgba(39, 26, 41, 0.85)' es el color #271A29 pero con 85% de opacidad.
-  - Esto te da el efecto de transparencia que querías.
-*/
 li a {
     display: block;
-    /* background-color: #271A29; <-- REEMPLAZADO */
-    background-color: rgba(39, 26, 41, 0.85); /* Color original con 85% opacidad */
+    background-color: #271A29;
     padding: 20px;
     border-radius: 12px;
     text-decoration: none;
     color: whitesmoke;
     font-size: 1.1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
     border-left: 5px solid #8d8d8d;
 }
 
-/* Efecto al pasar el mouse por encima */
 li a:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    /* background-color: #000000; <-- REEMPLAZADO */
-    background-color: rgba(0, 0, 0, 0.9); /* Más oscuro y opaco al pasar el mouse */
+    background-color: #000000;
     color: white;
 }
 
 li a p {
     font-size: 0.9rem;
-    color: #2DE617
+    color:#2DE617
 }
 
-/* CAMBIO 3 (NUEVO):
-  - Estilos para posicionar el video en el fondo.
-*/
 #video-fondo {
-    position: fixed; /* Se queda fijo incluso si haces scroll */
+    position: fixed;
     right: 0;
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
     width: auto;
     height: auto;
-    z-index: -100; /* MUY IMPORTANTE: Envía el video detrás de todo el contenido */
-    object-fit: cover; /* Hace que el video cubra toda la pantalla sin deformarse */
+    z-index: -100;
+    object-fit: cover;
+}
+
+/* NUEVO CAMBIO: Capa superpuesta para oscurecer y dar el toque morado */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 1, 31, 0.7); /* Morado oscuro con 70% de opacidad */
+    z-index: -99; /* Asegura que esté encima del video pero debajo del contenido */
 }
