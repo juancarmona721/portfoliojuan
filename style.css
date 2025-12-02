@@ -1,4 +1,4 @@
-/* Reset básico para quitar márgenes por defecto */
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +9,19 @@
 body {
     color: #28E601;
     text-align: center;
+    min-height: 100vh; /* Asegura que cubra toda la pantalla */
+}
+
+/* Capa oscura sobre el video */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 1, 31, 0.85); /* Un poco más oscuro para leer mejor */
+    z-index: -99;
 }
 
 header {
@@ -19,6 +32,7 @@ header {
 main {
     position: relative;
     z-index: 1;
+    padding-bottom: 50px; /* Espacio al final para scroll */
 }
 
 h1 {
@@ -38,41 +52,57 @@ h1 strong {
 
 h2 {
     margin-bottom: 1.5rem;
+    text-shadow: 0px 0px 10px #28E601; /* Efecto neón al título */
 }
 
+/* --- AQUÍ ESTÁ EL CAMBIO DE ORGANIZACIÓN --- */
 ul {
     list-style-type: none;
-    padding: 0;
-    max-width: 600px;
+    padding: 0 20px;
+    max-width: 1000px; /* Hice el contenedor más ancho */
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    
+    /* Grid Layout para organizar botones */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 li a {
-    display: block;
+    display: flex; /* Para centrar contenido verticalmente */
+    flex-direction: column;
+    justify-content: center;
     background-color: #271A29;
-    padding: 20px;
+    padding: 25px;
     border-radius: 12px;
     text-decoration: none;
     color: whitesmoke;
-    font-size: 1.1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    font-size: 1.2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
     border-left: 5px solid #8d8d8d;
+    height: 100%; /* Para que todos los botones tengan la misma altura */
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
+/* Efecto Hover */
 li a:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(40, 230, 1, 0.4); /* Brillo verde al pasar el mouse */
     background-color: #000000;
-    color: white;
+    border-left-color: #28E601; /* La barra lateral cambia a verde */
+}
+
+li a strong {
+    display: block;
+    margin-bottom: 8px;
+    text-transform: uppercase; /* Títulos en mayúscula se ven mejor */
 }
 
 li a p {
-    font-size: 0.9rem;
-    color:#2DE617
+    font-size: 0.95rem;
+    color: #2DE617;
+    font-weight: 300;
 }
 
 #video-fondo {
@@ -85,16 +115,4 @@ li a p {
     height: auto;
     z-index: -100;
     object-fit: cover;
-}
-
-/* NUEVO CAMBIO: Capa superpuesta para oscurecer y dar el toque morado */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(15, 1, 31, 0.7); /* Morado oscuro con 70% de opacidad */
-    z-index: -99; /* Asegura que esté encima del video pero debajo del contenido */
 }
