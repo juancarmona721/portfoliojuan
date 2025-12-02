@@ -1,4 +1,4 @@
-/* Reset básico para quitar márgenes por defecto */
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@ body {
     min-height: 100vh;
 }
 
-/* Capa superpuesta para oscurecer el fondo */
+/* Capa oscura */
 body::before {
     content: '';
     position: fixed;
@@ -20,84 +20,68 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 1, 31, 0.8); /* Morado oscuro transparente */
+    background-color: rgba(15, 1, 31, 0.85);
     z-index: -99;
-}
-
-header {
-    position: relative;
-    z-index: 1;
-}
-
-main {
-    position: relative;
-    z-index: 1;
-    padding-bottom: 50px;
 }
 
 h1 {
     background: linear-gradient(135deg, #AD75E0 0%, #721DEB 100%);
     color: white;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem;
     margin-bottom: 2rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     font-size: 2rem;
-    letter-spacing: 1px;
 }
 
 h1 strong {
     color: #28E601;
-    -webkit-text-stroke: 0.6px black ;
+    -webkit-text-stroke: 0.6px black;
 }
 
-h2 {
-    margin-bottom: 1.5rem;
-}
+/* --- AQUÍ ESTÁ LA FUERZA BRUTA PARA QUE SEAN HORIZONTALES --- */
 
-/* --- AQUÍ ESTÁ EL CAMBIO PARA QUE SEA HORIZONTAL --- */
-ul {
-    list-style-type: none;
-    padding: 0 20px;
-    /* Aumentamos el ancho máximo para que quepan varios botones */
-    max-width: 1200px; 
-    margin: 0 auto;
-    
-    /* GRID: Esto organiza los botones en cuadrícula horizontal automáticamente */
-    display: grid;
-    /* Esto dice: Rellena columnas de mínimo 280px de ancho */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 20px; /* Espacio entre botones */
-}
-
-li a {
+.container-botones {
+    /* Esto obliga a los elementos a estar en fila */
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centra el texto verticalmente dentro del cuadro */
+    /* Esto permite que si no caben en la pantalla, bajen a la siguiente linea */
+    flex-wrap: wrap; 
+    /* Esto los centra en la pantalla */
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px; /* Muy ancho para permitir muchos botones */
+    margin: 0 auto;
+}
+
+.boton-proyecto {
+    display: block;
     background-color: #271A29;
     padding: 20px;
     border-radius: 12px;
     text-decoration: none;
     color: whitesmoke;
-    font-size: 1.1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
+    width: 300px; /* Ancho fijo para asegurar uniformidad */
     border-left: 5px solid #8d8d8d;
-    height: 100%; /* Importante para que todos los cuadros midan lo mismo */
+    transition: transform 0.2s, background-color 0.2s;
+    text-align: left;
 }
 
-li a:hover {
+.boton-proyecto:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     background-color: #000000;
-    color: white;
-    /* Cambio de color en el borde al pasar el mouse */
-    border-left: 5px solid #28E601; 
+    border-left: 5px solid #28E601;
+    box-shadow: 0 0 15px rgba(40, 230, 1, 0.4);
 }
 
-li a p {
+.boton-proyecto strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.boton-proyecto p {
     font-size: 0.9rem;
-    color:#2DE617;
-    margin-top: 10px;
+    color: #2DE617;
 }
 
 #video-fondo {
@@ -106,8 +90,6 @@ li a p {
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-    width: auto;
-    height: auto;
     z-index: -100;
     object-fit: cover;
 }
